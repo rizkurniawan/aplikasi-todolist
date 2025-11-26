@@ -3,7 +3,7 @@ public class AplikasiTodolist {
     public static String[] model = new String[10];
 
     public static void main(String[] args) {
-        testShowTodoList();
+        testAddTodoList();
     }
 
     /**
@@ -29,8 +29,39 @@ public class AplikasiTodolist {
     /**
      * Menambahkan todo ke list
      */
-    public static void addTodoList() {
+    public static void addTodoList(String todo) {
+        // melakukan pengecekan apakah model masih kosong / penuh
+        var isFull = true;
+        for (var i = 0; i < model.length; i++) {
+            if (model[i] == null) {
+                isFull = false;
+                break;
+            }
+        }
 
+        // resize model jika penuh
+        if (isFull) {
+            var temp = model;
+            model = new String[model.length * 2];
+            for (var i = 0; i < temp.length; i++) {
+                model[i] = temp[i];
+            }
+        }
+
+        // memasukan todo ke dalam list
+        for (var i = 0; i < model.length; i++) {
+            if (model[i] == null) {
+                model[i] = todo;
+                break;
+            }
+        }
+    }
+
+    public static void testAddTodoList() {
+        for (var i = 0; i < 25; i++) {
+            addTodoList("Todo ke-" + i);
+        }
+        showTodoList();
     }
 
     /**
