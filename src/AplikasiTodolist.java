@@ -3,7 +3,7 @@ public class AplikasiTodolist {
     public static String[] model = new String[10];
 
     public static void main(String[] args) {
-        testAddTodoList();
+        testRemoveTodolist();
     }
 
     /**
@@ -67,8 +67,37 @@ public class AplikasiTodolist {
     /**
      * Menghapus todo dari list
      */
-    public static void removeTodoList() {
+    public static boolean removeTodoList(Integer number) {
+        if ((number - 1) >= model.length) {
+            return false;
+        } else if (model[number - 1] == null) {
+            return  false;
+        } else {
+            for (var i = (number - 1); i < model.length; i++) {
+                if (i == (model.length - 1)) {
+                    model[i] = null;
+                } else {
+                    model[i] = model[i + 1];
+                }
+            }
+            return true;
+        }
+    }
 
+    public static void testRemoveTodolist() {
+        addTodoList("Belajar Java Dasar");
+        addTodoList("Belajar Golang");
+        addTodoList("Belajar PHP");
+
+        var result = removeTodoList(4);
+        System.out.println(result);
+
+        showTodoList();
+
+        result = removeTodoList(2);
+        System.out.println(result);
+
+        showTodoList();
     }
 
     /**
