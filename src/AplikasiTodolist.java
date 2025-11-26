@@ -26,4 +26,25 @@ public class AplikasiTodolist {
     public static void removeTodoList() {
 
     }
+
+    /**
+     * Menampilkan view show todo list
+     */
+    public static void viewShowTodoList() {
+
+    }
+
+    /**
+     * Menampilkan view menambahkan todo list
+     */
+    public static void viewAddTodoList() {
+
+    }
+
+    /**
+     * Menampilkan view menghapus todo dari list
+     */
+    public static void viewRemoveTodoList() {
+
+    }
 }
