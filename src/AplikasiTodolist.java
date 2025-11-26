@@ -1,9 +1,10 @@
 public class AplikasiTodolist {
 
     public static String[] model = new String[10];
+    public static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
     public static void main(String[] args) {
-        testRemoveTodolist();
+        testInput();
     }
 
     /**
@@ -98,6 +99,20 @@ public class AplikasiTodolist {
         System.out.println(result);
 
         showTodoList();
+    }
+
+    public static String input(String info) {
+        System.out.print(info + " : ");
+        String data = scanner.nextLine();
+        return data;
+    }
+
+    public static void testInput() {
+        var name = input("Masukkan nama anda");
+        System.out.println("Hi " + name);
+
+        var address = input("Masukkan alamat anda");
+        System.out.println(address);
     }
 
     /**
